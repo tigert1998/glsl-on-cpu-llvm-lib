@@ -1,3 +1,21 @@
+; declare void @.mult.int.int(i32*, i32*, i32*)
+; declare void @.mult.uint.uint(i32*, i32*, i32*)
+; declare void @.mult.float.float(float*, float*, float*)
+; declare void @.mult.ivecn.ivecn(i32*, i32, i32*, i32, i32*)
+; declare void @.mult.int.ivecn(i32*, i32*, i32, i32*)
+; declare void @.mult.ivecn.int(i32*, i32, i32*, i32*)
+; declare void @.mult.uvecn.uvecn(i32*, i32, i32*, i32, i32*)
+; declare void @.mult.uint.uvecn(i32*, i32*, i32, i32*)
+; declare void @.mult.uvecn.uint(i32*, i32, i32*, i32*)
+; declare void @.mult.vecn.vecn(float*, i32, float*, i32, float*)
+; declare void @.mult.float.vecn(float*, float*, i32, float*)
+; declare void @.mult.vecn.float(float*, i32, float*, float*)
+; declare void @.mult.float.matnxm(float*, float*, i32, i32, float*)
+; declare void @.mult.matnxm.float(float*, i32, i32, float*, float*)
+; declare void @.mult.vecn.matnxm(float*, i32, float*, i32, i32, float*)
+; declare void @.mult.matnxm.vecn(float*, i32, i32, float*, i32, float*)
+; declare void @.mult.matnxm.matnxm(float*, i32, i32, float*, i32, i32, float*)
+
 ; int * int
 define void @.mult.int.int(i32*, i32*, i32*) {
   %4 = alloca i32*, align 8

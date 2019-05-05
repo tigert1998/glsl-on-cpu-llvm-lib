@@ -1,7 +1,29 @@
+; declare void @print.int(i32*)
+; declare void @print.uint(i32*)
+; declare void @print.float(float*)
+; declare void @print.bool(i8*)
+; declare void @print.ivecn(i32*, i32)
+; declare void @print.uvecn(i32*, i32)
+; declare void @print.vecn(float*, i32)
+; declare void @print.bvecn(i8*, i32)
+
+; declare void @read.int(i32*)
+; declare void @read.uint(i32*)
+; declare void @read.float(float*)
+; declare void @read.bool(i8*)
+; declare void @read.ivecn(i32*, i32)
+; declare void @read.uvecn(i32*, i32)
+; declare void @read.vecn(float*, i32)
+; declare void @read.bvecn(i8*, i32)
+
 ; void print(int)
 ; void print(uint)
 ; void print(float)
 ; void print(bool)
+; void print(ivecn)
+; void print(uvecn)
+; void print(vecn)
+; void print(bvecn)
 
 @print.int.str = private unnamed_addr constant [4 x i8] c"%d\0A\00", align 1
 
@@ -53,10 +75,192 @@ define void @print.bool(i8*) {
   ret void
 }
 
+@print.ivecn.str.0 = private unnamed_addr constant [4 x i8] c"(%d\00", align 1
+@print.ivecn.str.1 = private unnamed_addr constant [5 x i8] c", %d\00", align 1
+@print.ivecn.str.2 = private unnamed_addr constant [3 x i8] c")\0A\00", align 1
+@print.uvecn.str.0 = private unnamed_addr constant [4 x i8] c"(%u\00", align 1
+@print.uvecn.str.1 = private unnamed_addr constant [5 x i8] c", %u\00", align 1
+@print.vecn.str.0 = private unnamed_addr constant [6 x i8] c"(%.6f\00", align 1
+@print.vecn.str.1 = private unnamed_addr constant [7 x i8] c", %.6f\00", align 1
+@print.bvecn.str.0 = private unnamed_addr constant [4 x i8] c"(%s\00", align 1
+@print.bvecn.str.1 = private unnamed_addr constant [5 x i8] c"true\00", align 1
+@print.bvecn.str.2 = private unnamed_addr constant [6 x i8] c"false\00", align 1
+@print.bvecn.str.3 = private unnamed_addr constant [5 x i8] c", %s\00", align 1
+
+define void @print.ivecn(i32*, i32) {
+  %3 = alloca i32*, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store i32* %0, i32** %3, align 8
+  store i32 %1, i32* %4, align 4
+  %6 = load i32*, i32** %3, align 8
+  %7 = getelementptr inbounds i32, i32* %6, i64 0
+  %8 = load i32, i32* %7, align 4
+  %9 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @print.ivecn.str.0, i32 0, i32 0), i32 %8)
+  store i32 1, i32* %5, align 4
+  br label %10
+
+; <label>:10:                                     ; preds = %21, %2
+  %11 = load i32, i32* %5, align 4
+  %12 = load i32, i32* %4, align 4
+  %13 = icmp slt i32 %11, %12
+  br i1 %13, label %14, label %24
+
+; <label>:14:                                     ; preds = %10
+  %15 = load i32*, i32** %3, align 8
+  %16 = load i32, i32* %5, align 4
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr inbounds i32, i32* %15, i64 %17
+  %19 = load i32, i32* %18, align 4
+  %20 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([5 x i8], [5 x i8]* @print.ivecn.str.1, i32 0, i32 0), i32 %19)
+  br label %21
+
+; <label>:21:                                     ; preds = %14
+  %22 = load i32, i32* %5, align 4
+  %23 = add nsw i32 %22, 1
+  store i32 %23, i32* %5, align 4
+  br label %10
+
+; <label>:24:                                     ; preds = %10
+  %25 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([3 x i8], [3 x i8]* @print.ivecn.str.2, i32 0, i32 0))
+  ret void
+}
+
+define void @print.uvecn(i32*, i32) {
+  %3 = alloca i32*, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store i32* %0, i32** %3, align 8
+  store i32 %1, i32* %4, align 4
+  %6 = load i32*, i32** %3, align 8
+  %7 = getelementptr inbounds i32, i32* %6, i64 0
+  %8 = load i32, i32* %7, align 4
+  %9 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @print.uvecn.str.0, i32 0, i32 0), i32 %8)
+  store i32 1, i32* %5, align 4
+  br label %10
+
+; <label>:10:                                     ; preds = %21, %2
+  %11 = load i32, i32* %5, align 4
+  %12 = load i32, i32* %4, align 4
+  %13 = icmp slt i32 %11, %12
+  br i1 %13, label %14, label %24
+
+; <label>:14:                                     ; preds = %10
+  %15 = load i32*, i32** %3, align 8
+  %16 = load i32, i32* %5, align 4
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr inbounds i32, i32* %15, i64 %17
+  %19 = load i32, i32* %18, align 4
+  %20 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([5 x i8], [5 x i8]* @print.uvecn.str.1, i32 0, i32 0), i32 %19)
+  br label %21
+
+; <label>:21:                                     ; preds = %14
+  %22 = load i32, i32* %5, align 4
+  %23 = add nsw i32 %22, 1
+  store i32 %23, i32* %5, align 4
+  br label %10
+
+; <label>:24:                                     ; preds = %10
+  %25 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([3 x i8], [3 x i8]* @print.ivecn.str.2, i32 0, i32 0))
+  ret void
+}
+
+define void @print.vecn(float*, i32) {
+  %3 = alloca float*, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store float* %0, float** %3, align 8
+  store i32 %1, i32* %4, align 4
+  %6 = load float*, float** %3, align 8
+  %7 = getelementptr inbounds float, float* %6, i64 0
+  %8 = load float, float* %7, align 4
+  %9 = fpext float %8 to double
+  %10 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([6 x i8], [6 x i8]* @print.vecn.str.0, i32 0, i32 0), double %9)
+  store i32 1, i32* %5, align 4
+  br label %11
+
+; <label>:11:                                     ; preds = %23, %2
+  %12 = load i32, i32* %5, align 4
+  %13 = load i32, i32* %4, align 4
+  %14 = icmp slt i32 %12, %13
+  br i1 %14, label %15, label %26
+
+; <label>:15:                                     ; preds = %11
+  %16 = load float*, float** %3, align 8
+  %17 = load i32, i32* %5, align 4
+  %18 = sext i32 %17 to i64
+  %19 = getelementptr inbounds float, float* %16, i64 %18
+  %20 = load float, float* %19, align 4
+  %21 = fpext float %20 to double
+  %22 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([7 x i8], [7 x i8]* @print.vecn.str.1, i32 0, i32 0), double %21)
+  br label %23
+
+; <label>:23:                                     ; preds = %15
+  %24 = load i32, i32* %5, align 4
+  %25 = add nsw i32 %24, 1
+  store i32 %25, i32* %5, align 4
+  br label %11
+
+; <label>:26:                                     ; preds = %11
+  %27 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([3 x i8], [3 x i8]* @print.ivecn.str.2, i32 0, i32 0))
+  ret void
+}
+
+define void @print.bvecn(i8*, i32) {
+  %3 = alloca i8*, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store i8* %0, i8** %3, align 8
+  store i32 %1, i32* %4, align 4
+  %6 = load i8*, i8** %3, align 8
+  %7 = getelementptr inbounds i8, i8* %6, i64 0
+  %8 = load i8, i8* %7, align 1
+  %9 = sext i8 %8 to i32
+  %10 = icmp ne i32 %9, 0
+  %11 = zext i1 %10 to i64
+  %12 = select i1 %10, i8* getelementptr inbounds ([5 x i8], [5 x i8]* @print.bvecn.str.1, i32 0, i32 0), i8* getelementptr inbounds ([6 x i8], [6 x i8]* @print.bvecn.str.2, i32 0, i32 0)
+  %13 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @print.bvecn.str.0, i32 0, i32 0), i8* %12)
+  store i32 1, i32* %5, align 4
+  br label %14
+
+; <label>:14:                                     ; preds = %29, %2
+  %15 = load i32, i32* %5, align 4
+  %16 = load i32, i32* %4, align 4
+  %17 = icmp slt i32 %15, %16
+  br i1 %17, label %18, label %32
+
+; <label>:18:                                     ; preds = %14
+  %19 = load i8*, i8** %3, align 8
+  %20 = load i32, i32* %5, align 4
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds i8, i8* %19, i64 %21
+  %23 = load i8, i8* %22, align 1
+  %24 = sext i8 %23 to i32
+  %25 = icmp ne i32 %24, 0
+  %26 = zext i1 %25 to i64
+  %27 = select i1 %25, i8* getelementptr inbounds ([5 x i8], [5 x i8]* @print.bvecn.str.1, i32 0, i32 0), i8* getelementptr inbounds ([6 x i8], [6 x i8]* @print.bvecn.str.2, i32 0, i32 0)
+  %28 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([5 x i8], [5 x i8]* @print.bvecn.str.3, i32 0, i32 0), i8* %27)
+  br label %29
+
+; <label>:29:                                     ; preds = %18
+  %30 = load i32, i32* %5, align 4
+  %31 = add nsw i32 %30, 1
+  store i32 %31, i32* %5, align 4
+  br label %14
+
+; <label>:32:                                     ; preds = %14
+  %33 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([3 x i8], [3 x i8]* @print.ivecn.str.2, i32 0, i32 0))
+  ret void
+}
+
 ; void read(out int)
 ; void read(out uint)
 ; void read(out float)
 ; void read(out bool)
+; void read(out ivecn)
+; void read(out uvecn)
+; void read(out vecn)
+; void read(out bvecn)
 
 @read.int.str = private unnamed_addr constant [3 x i8] c"%d\00", align 1
 
@@ -101,6 +305,138 @@ define void @read.bool(i8*) {
   %8 = trunc i32 %7 to i8
   %9 = load i8*, i8** %2, align 8
   store i8 %8, i8* %9, align 1
+  ret void
+}
+
+define void @read.ivecn(i32*, i32) {
+  %3 = alloca i32*, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store i32* %0, i32** %3, align 8
+  store i32 %1, i32* %4, align 4
+  store i32 0, i32* %5, align 4
+  br label %6
+
+; <label>:6:                                      ; preds = %15, %2
+  %7 = load i32, i32* %5, align 4
+  %8 = load i32, i32* %4, align 4
+  %9 = icmp slt i32 %7, %8
+  br i1 %9, label %10, label %18
+
+; <label>:10:                                     ; preds = %6
+  %11 = load i32*, i32** %3, align 8
+  %12 = load i32, i32* %5, align 4
+  %13 = sext i32 %12 to i64
+  %14 = getelementptr inbounds i32, i32* %11, i64 %13
+  call void @read.int(i32* %14)
+  br label %15
+
+; <label>:15:                                     ; preds = %10
+  %16 = load i32, i32* %5, align 4
+  %17 = add nsw i32 %16, 1
+  store i32 %17, i32* %5, align 4
+  br label %6
+
+; <label>:18:                                     ; preds = %6
+  ret void
+}
+
+define void @read.uvecn(i32*, i32) {
+  %3 = alloca i32*, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store i32* %0, i32** %3, align 8
+  store i32 %1, i32* %4, align 4
+  store i32 0, i32* %5, align 4
+  br label %6
+
+; <label>:6:                                      ; preds = %15, %2
+  %7 = load i32, i32* %5, align 4
+  %8 = load i32, i32* %4, align 4
+  %9 = icmp slt i32 %7, %8
+  br i1 %9, label %10, label %18
+
+; <label>:10:                                     ; preds = %6
+  %11 = load i32*, i32** %3, align 8
+  %12 = load i32, i32* %5, align 4
+  %13 = sext i32 %12 to i64
+  %14 = getelementptr inbounds i32, i32* %11, i64 %13
+  call void @read.uint(i32* %14)
+  br label %15
+
+; <label>:15:                                     ; preds = %10
+  %16 = load i32, i32* %5, align 4
+  %17 = add nsw i32 %16, 1
+  store i32 %17, i32* %5, align 4
+  br label %6
+
+; <label>:18:                                     ; preds = %6
+  ret void
+}
+
+define void @read.vecn(float*, i32) {
+  %3 = alloca float*, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store float* %0, float** %3, align 8
+  store i32 %1, i32* %4, align 4
+  store i32 0, i32* %5, align 4
+  br label %6
+
+; <label>:6:                                      ; preds = %15, %2
+  %7 = load i32, i32* %5, align 4
+  %8 = load i32, i32* %4, align 4
+  %9 = icmp slt i32 %7, %8
+  br i1 %9, label %10, label %18
+
+; <label>:10:                                     ; preds = %6
+  %11 = load float*, float** %3, align 8
+  %12 = load i32, i32* %5, align 4
+  %13 = sext i32 %12 to i64
+  %14 = getelementptr inbounds float, float* %11, i64 %13
+  call void @read.float(float* %14)
+  br label %15
+
+; <label>:15:                                     ; preds = %10
+  %16 = load i32, i32* %5, align 4
+  %17 = add nsw i32 %16, 1
+  store i32 %17, i32* %5, align 4
+  br label %6
+
+; <label>:18:                                     ; preds = %6
+  ret void
+}
+
+define void @read.bvecn(i8*, i32) {
+  %3 = alloca i8*, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store i8* %0, i8** %3, align 8
+  store i32 %1, i32* %4, align 4
+  store i32 0, i32* %5, align 4
+  br label %6
+
+; <label>:6:                                      ; preds = %15, %2
+  %7 = load i32, i32* %5, align 4
+  %8 = load i32, i32* %4, align 4
+  %9 = icmp slt i32 %7, %8
+  br i1 %9, label %10, label %18
+
+; <label>:10:                                     ; preds = %6
+  %11 = load i8*, i8** %3, align 8
+  %12 = load i32, i32* %5, align 4
+  %13 = sext i32 %12 to i64
+  %14 = getelementptr inbounds i8, i8* %11, i64 %13
+  call void @read.bool(i8* %14)
+  br label %15
+
+; <label>:15:                                     ; preds = %10
+  %16 = load i32, i32* %5, align 4
+  %17 = add nsw i32 %16, 1
+  store i32 %17, i32* %5, align 4
+  br label %6
+
+; <label>:18:                                     ; preds = %6
   ret void
 }
 
