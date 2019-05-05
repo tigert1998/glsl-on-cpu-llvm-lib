@@ -1,3 +1,7 @@
+; declare void @.greater.int.int(i32*, i32*, i8*)
+; declare void @.greater.uint.uint(i32*, i32*, i8*)
+; declare void @.greater.float.float(float*, float*, i8*)
+
 ; int > int
 define void @.greater.int.int(i32*, i32*, i8*) {
   %4 = alloca i32*, align 8

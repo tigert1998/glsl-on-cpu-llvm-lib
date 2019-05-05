@@ -6,6 +6,7 @@
 ; declare void @print.uvecn(i32*, i32)
 ; declare void @print.vecn(float*, i32)
 ; declare void @print.bvecn(i8*, i32)
+; declare void @print.matnxm(float*, i32, i32)
 
 ; declare void @read.int(i32*)
 ; declare void @read.uint(i32*)
@@ -15,6 +16,7 @@
 ; declare void @read.uvecn(i32*, i32)
 ; declare void @read.vecn(float*, i32)
 ; declare void @read.bvecn(i8*, i32)
+; declare void @read.matnxm(float*, i32, i32)
 
 ; void print(int)
 ; void print(uint)
@@ -253,6 +255,88 @@ define void @print.bvecn(i8*, i32) {
   ret void
 }
 
+@print.matnxm.str = private unnamed_addr constant [2 x i8] c"[\00", align 1
+@print.matnxm.str.1 = private unnamed_addr constant [5 x i8] c"%.6f\00", align 1
+@print.matnxm.str.2 = private unnamed_addr constant [7 x i8] c", %.6f\00", align 1
+@print.matnxm.str.3 = private unnamed_addr constant [3 x i8] c"]\0A\00", align 1
+@print.matnxm.str.4 = private unnamed_addr constant [3 x i8] c"; \00", align 1
+
+define void @print.matnxm(float*, i32, i32) {
+  %4 = alloca float*, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store float* %0, float** %4, align 8
+  store i32 %1, i32* %5, align 4
+  store i32 %2, i32* %6, align 4
+  %9 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([2 x i8], [2 x i8]* @print.matnxm.str, i32 0, i32 0))
+  store i32 0, i32* %7, align 4
+  br label %10
+
+; <label>:10:                                     ; preds = %49, %3
+  %11 = load i32, i32* %7, align 4
+  %12 = load i32, i32* %6, align 4
+  %13 = icmp slt i32 %11, %12
+  br i1 %13, label %14, label %52
+
+; <label>:14:                                     ; preds = %10
+  %15 = load float*, float** %4, align 8
+  %16 = load i32, i32* %7, align 4
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr inbounds float, float* %15, i64 %17
+  %19 = load float, float* %18, align 4
+  %20 = fpext float %19 to double
+  %21 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([5 x i8], [5 x i8]* @print.matnxm.str.1, i32 0, i32 0), double %20)
+  store i32 1, i32* %8, align 4
+  br label %22
+
+; <label>:22:                                     ; preds = %38, %14
+  %23 = load i32, i32* %8, align 4
+  %24 = load i32, i32* %5, align 4
+  %25 = icmp slt i32 %23, %24
+  br i1 %25, label %26, label %41
+
+; <label>:26:                                     ; preds = %22
+  %27 = load float*, float** %4, align 8
+  %28 = load i32, i32* %8, align 4
+  %29 = load i32, i32* %6, align 4
+  %30 = mul nsw i32 %28, %29
+  %31 = load i32, i32* %7, align 4
+  %32 = add nsw i32 %30, %31
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds float, float* %27, i64 %33
+  %35 = load float, float* %34, align 4
+  %36 = fpext float %35 to double
+  %37 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([7 x i8], [7 x i8]* @print.matnxm.str.2, i32 0, i32 0), double %36)
+  br label %38
+
+; <label>:38:                                     ; preds = %26
+  %39 = load i32, i32* %8, align 4
+  %40 = add nsw i32 %39, 1
+  store i32 %40, i32* %8, align 4
+  br label %22
+
+; <label>:41:                                     ; preds = %22
+  %42 = load i32, i32* %7, align 4
+  %43 = load i32, i32* %6, align 4
+  %44 = sub nsw i32 %43, 1
+  %45 = icmp eq i32 %42, %44
+  %46 = zext i1 %45 to i64
+  %47 = select i1 %45, i8* getelementptr inbounds ([3 x i8], [3 x i8]* @print.matnxm.str.3, i32 0, i32 0), i8* getelementptr inbounds ([3 x i8], [3 x i8]* @print.matnxm.str.4, i32 0, i32 0)
+  %48 = call i32 (i8*, ...) @printf(i8* %47)
+  br label %49
+
+; <label>:49:                                     ; preds = %41
+  %50 = load i32, i32* %7, align 4
+  %51 = add nsw i32 %50, 1
+  store i32 %51, i32* %7, align 4
+  br label %10
+
+; <label>:52:                                     ; preds = %10
+  ret void
+}
+
 ; void read(out int)
 ; void read(out uint)
 ; void read(out float)
@@ -437,6 +521,43 @@ define void @read.bvecn(i8*, i32) {
   br label %6
 
 ; <label>:18:                                     ; preds = %6
+  ret void
+}
+
+define void @read.matnxm(float*, i32, i32) {
+  %4 = alloca float*, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store float* %0, float** %4, align 8
+  store i32 %1, i32* %5, align 4
+  store i32 %2, i32* %6, align 4
+  store i32 0, i32* %7, align 4
+  br label %8
+
+; <label>:8:                                      ; preds = %19, %3
+  %9 = load i32, i32* %7, align 4
+  %10 = load i32, i32* %5, align 4
+  %11 = load i32, i32* %6, align 4
+  %12 = mul nsw i32 %10, %11
+  %13 = icmp slt i32 %9, %12
+  br i1 %13, label %14, label %22
+
+; <label>:14:                                     ; preds = %8
+  %15 = load float*, float** %4, align 8
+  %16 = load i32, i32* %7, align 4
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr inbounds float, float* %15, i64 %17
+  call void @read.float(float* %18)
+  br label %19
+
+; <label>:19:                                     ; preds = %14
+  %20 = load i32, i32* %7, align 4
+  %21 = add nsw i32 %20, 1
+  store i32 %21, i32* %7, align 4
+  br label %8
+
+; <label>:22:                                     ; preds = %8
   ret void
 }
 
