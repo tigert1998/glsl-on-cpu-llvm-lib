@@ -90,7 +90,7 @@ define void @read.float(float*) {
 
 @read.bool.str = private unnamed_addr constant [3 x i8] c"%d\00", align 1
 
-define void @read.bool(i8*) #0 {
+define void @read.bool(i8*) {
   %2 = alloca i8*, align 8
   %3 = alloca i32, align 4
   store i8* %0, i8** %2, align 8
