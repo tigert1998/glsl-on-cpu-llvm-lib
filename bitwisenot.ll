@@ -1,7 +1,7 @@
-; define void @.bitwisenot.int(i32*, i32*)
-; define void @.bitwisenot.uint(i32*, i32*)
-; define void @.bitwisenot.ivecn(i32*, i32, i32*)
-; define void @.bitwisenot.uvecn(i32*, i32, i32*)
+; declare void @.bitwisenot.int(i32*, i32*)
+; declare void @.bitwisenot.uint(i32*, i32*)
+; declare void @.bitwisenot.ivecn(i32*, i32, i32*)
+; declare void @.bitwisenot.uvecn(i32*, i32, i32*)
 
 define void @.bitwisenot.int(i32*, i32*) {
   %3 = alloca i32*, align 8

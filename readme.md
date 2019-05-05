@@ -13,7 +13,7 @@
 | Less         |      |             |                                                             |
 | LessEqual    |      |             |                                                             |
 | LogicalAnd   |      |             |                                                             |
-| LogicalNot   |      | ?           |                                                             |
+| LogicalNot   |      |             |                                                             |
 | LogicalOr    |      |             |                                                             |
 | LogicalXor   |      |             |                                                             |
 | Minus        |      | ?           |                                                             |

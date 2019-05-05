@@ -7,7 +7,6 @@
 ; declare void @print.vecn(float*, i32)
 ; declare void @print.bvecn(i8*, i32)
 ; declare void @print.matnxm(float*, i32, i32)
-
 ; declare void @read.int(i32*)
 ; declare void @read.uint(i32*)
 ; declare void @read.float(float*)
@@ -17,15 +16,6 @@
 ; declare void @read.vecn(float*, i32)
 ; declare void @read.bvecn(i8*, i32)
 ; declare void @read.matnxm(float*, i32, i32)
-
-; void print(int)
-; void print(uint)
-; void print(float)
-; void print(bool)
-; void print(ivecn)
-; void print(uvecn)
-; void print(vecn)
-; void print(bvecn)
 
 @print.int.str = private unnamed_addr constant [4 x i8] c"%d\0A\00", align 1
 
@@ -336,15 +326,6 @@ define void @print.matnxm(float*, i32, i32) {
 ; <label>:52:                                     ; preds = %10
   ret void
 }
-
-; void read(out int)
-; void read(out uint)
-; void read(out float)
-; void read(out bool)
-; void read(out ivecn)
-; void read(out uvecn)
-; void read(out vecn)
-; void read(out bvecn)
 
 @read.int.str = private unnamed_addr constant [3 x i8] c"%d\00", align 1
 
