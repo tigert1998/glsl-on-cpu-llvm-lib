@@ -6,8 +6,8 @@
 | BitwiseNot   |      |             |                                                             |
 | BitwiseOr    |      |             |                                                             |
 | BitwiseXor   |      |             |                                                             |
-| Div          |      | ?           |                                                             |
-| Equal        |      | ?           |                                                             |
+| Div          |      | ty          |                                                             |
+| Equal        |      | ty          |                                                             |
 | Greater      |      |             |                                                             |
 | GreaterEqual |      |             |                                                             |
 | Less         |      |             |                                                             |
@@ -16,11 +16,27 @@
 | LogicalNot   |      |             |                                                             |
 | LogicalOr    |      |             |                                                             |
 | LogicalXor   |      |             |                                                             |
-| Minus        |      | ?           |                                                             |
+| Minus        |      | zq          |                                                             |
 | Mod          |      |             |                                                             |
 | Mult         |      |             |                                                             |
 | NotEqual     |      |             | no need to implement cuz it would be compiled to `(!).(==)` |
-| Plus         |      | ?           |                                                             |
+| Plus         |      | zq          |                                                             |
 | Shl          |      |             |                                                             |
 | Shr          |      |             |                                                             |
+
+## type in llvm
+
+| glsl   | reference           | type              |
+| ------ | ------------------- | ----------------- |
+| int    | `i32*`              | `i32`             |
+| uint   | `i32*`              | `i32`             |
+| float  | `float*`            | `float`           |
+| bool   | `char*`             | `char`            |
+| ivecn  | `[n x i32*]*`       | `[n x i32]`       |
+| uvecn  | `[n x i32*]*`       | `[n x i32]`       |
+| vecn   | `[n x float*]*`     | `[n x float]`     |
+| bvecn  | `[n x char*]*`      | `[n x char]`      |
+| matnxm | `[(n*m) x float*]*` | `[(n*m) x float]` |
+| struct |                     |                   |
+| array  |                     |                   |
 
