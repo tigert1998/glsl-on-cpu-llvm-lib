@@ -1,28 +1,28 @@
 # glsl-on-cpu-llvm-lib
 
-| operator     | todo | assigned to | remark                                                      |
-| ------------ | ---- | ----------- | ----------------------------------------------------------- |
-| BitwiseAnd   |      |             |                                                             |
-| BitwiseNot   |      |             |                                                             |
-| BitwiseOr    |      |             |                                                             |
-| BitwiseXor   |      |             |                                                             |
-| Div          |      |             |                                                             |
-| Equal        |      | ty          |                                                             |
-| Greater      |      |             |                                                             |
-| GreaterEqual |      |             |                                                             |
-| Less         |      |             |                                                             |
-| LessEqual    |      |             |                                                             |
-| LogicalAnd   |      |             |                                                             |
-| LogicalNot   |      |             |                                                             |
-| LogicalOr    |      |             |                                                             |
-| LogicalXor   |      |             |                                                             |
-| Minus        |      | zq          |                                                             |
-| Mod          |      |             |                                                             |
-| Mult         |      |             |                                                             |
-| NotEqual     |      |             | no need to implement cuz it would be compiled to `(!).(==)` |
-| Plus         |      | zq          |                                                             |
-| Shl          |      |             |                                                             |
-| Shr          |      |             |                                                             |
+| operator     | todo             | assigned to | remark                                                      |
+| ------------ | ---------------- | ----------- | ----------------------------------------------------------- |
+| BitwiseAnd   |                  |             |                                                             |
+| BitwiseNot   |                  |             |                                                             |
+| BitwiseOr    |                  |             |                                                             |
+| BitwiseXor   |                  |             |                                                             |
+| Div          |                  |             |                                                             |
+| Equal        | struct and array |             |                                                             |
+| Greater      |                  |             |                                                             |
+| GreaterEqual |                  |             |                                                             |
+| Less         |                  |             |                                                             |
+| LessEqual    |                  |             |                                                             |
+| LogicalAnd   |                  |             |                                                             |
+| LogicalNot   |                  |             |                                                             |
+| LogicalOr    |                  |             |                                                             |
+| LogicalXor   |                  |             |                                                             |
+| Minus        |                  | zq          |                                                             |
+| Mod          |                  |             |                                                             |
+| Mult         |                  |             |                                                             |
+| NotEqual     |                  |             | no need to implement cuz it would be compiled to `(!).(==)` |
+| Plus         |                  | zq          |                                                             |
+| Shl          |                  |             |                                                             |
+| Shr          |                  |             |                                                             |
 
 ## type in llvm
 
