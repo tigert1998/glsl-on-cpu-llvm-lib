@@ -6,7 +6,7 @@
 | BitwiseNot   |      |             |                                                             |
 | BitwiseOr    |      |             |                                                             |
 | BitwiseXor   |      |             |                                                             |
-| Div          |      | ty          |                                                             |
+| Div          |      |             |                                                             |
 | Equal        |      | ty          |                                                             |
 | Greater      |      |             |                                                             |
 | GreaterEqual |      |             |                                                             |
