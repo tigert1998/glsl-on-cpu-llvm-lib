@@ -16,11 +16,11 @@
 | LogicalNot   |                  |             |                                                             |
 | LogicalOr    |                  |             |                                                             |
 | LogicalXor   |                  |             |                                                             |
-| Minus        |                  | zq          |                                                             |
+| Minus        |                  |             |                                                             |
 | Mod          |                  |             |                                                             |
 | Mult         |                  |             |                                                             |
 | NotEqual     |                  |             | no need to implement cuz it would be compiled to `(!).(==)` |
-| Plus         |                  | zq          |                                                             |
+| Plus         |                  |             |                                                             |
 | Shl          |                  |             |                                                             |
 | Shr          |                  |             |                                                             |
 
