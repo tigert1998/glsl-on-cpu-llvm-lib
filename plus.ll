@@ -1,4 +1,26 @@
-; Function Attrs: noinline nounwind optnone uwtable
+; declare void @.plus.int(i32*, i32*)
+; declare void @.plus.uint(i32*, i32*)
+; declare void @.plus.float(float*, float*)
+; declare void @.plus.vecn(float*, i32, float*)
+; declare void @.plus.ivecn(i32*, i32, i32*) 
+; declare void @.plus.uvecn(i32*, i32, i32*) 
+; declare void @.plus.matnxm(float*, i32, i32, float*)
+; declare void @.plus.int.int(i32*, i32*, i32*)
+; declare void @.plus.uint.uint(i32*, i32*, i32*)
+; declare void @.plus.float.float(float*, float*, float*)
+; declare void @.plus.ivecn.ivecn(i32*, i32, i32*, i32, i32*)
+; declare void @.plus.int.ivecn(i32*, i32*, i32, i32*)
+; declare void @.plus.ivecn.int(i32*, i32, i32*, i32*)
+; declare void @.plus.uvecn.uvecn(i32*, i32, i32*, i32, i32*)
+; declare void @.plus.uint.uvecn(i32*, i32*, i32, i32*)
+; declare void @.plus.uvecn.uint(i32*, i32, i32*, i32*)
+; declare void @.plus.vecn.vecn(float*, i32, float*, i32, float*)
+; declare void @.plus.float.vecn(float*, float*, i32, float*)
+; declare void @.plus.vecn.float(float*, i32, float*, float*)
+; declare void @.plus.matnxm.matnxm(float*, i32, i32, float*, i32, i32, float*)
+; declare void @.plus.matnxm.float(float*, i32, i32, float*, float*)
+; declare void @.plus.float.matnxm(float*, float*, i32, i32, float*)
+
 define void @.plus.int(i32*, i32*) {
   %3 = alloca i32*, align 8
   %4 = alloca i32*, align 8
@@ -11,7 +33,6 @@ define void @.plus.int(i32*, i32*) {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
 define void @.plus.uint(i32*, i32*) {
   %3 = alloca i32*, align 8
   %4 = alloca i32*, align 8
@@ -24,7 +45,6 @@ define void @.plus.uint(i32*, i32*) {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
 define void @.plus.float(float*, float*) {
   %3 = alloca float*, align 8
   %4 = alloca float*, align 8
@@ -37,7 +57,6 @@ define void @.plus.float(float*, float*) {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
 define void @.plus.vecn(float*, i32, float*) {
   %4 = alloca float*, align 8
   %5 = alloca i32, align 4
@@ -78,8 +97,7 @@ define void @.plus.vecn(float*, i32, float*) {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
-define  void @.plus.ivecn(i32*, i32, i32*)  {
+define void @.plus.ivecn(i32*, i32, i32*)  {
   %4 = alloca i32*, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32*, align 8
@@ -119,8 +137,7 @@ define  void @.plus.ivecn(i32*, i32, i32*)  {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
-define  void @.plus.uvecn(i32*, i32, i32*)  {
+define void @.plus.uvecn(i32*, i32, i32*)  {
   %4 = alloca i32*, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32*, align 8
@@ -160,7 +177,6 @@ define  void @.plus.uvecn(i32*, i32, i32*)  {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
 define void @.plus.matnxm(float*, i32, i32, float*) {
   %5 = alloca float*, align 8
   %6 = alloca i32, align 4
@@ -205,7 +221,6 @@ define void @.plus.matnxm(float*, i32, i32, float*) {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
 define void @.plus.int.int(i32*, i32*, i32*) {
   %4 = alloca i32*, align 8
   %5 = alloca i32*, align 8
@@ -223,7 +238,6 @@ define void @.plus.int.int(i32*, i32*, i32*) {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
 define void @.plus.uint.uint(i32*, i32*, i32*) {
   %4 = alloca i32*, align 8
   %5 = alloca i32*, align 8
@@ -241,7 +255,6 @@ define void @.plus.uint.uint(i32*, i32*, i32*) {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
 define void @.plus.float.float(float*, float*, float*) {
   %4 = alloca float*, align 8
   %5 = alloca float*, align 8
@@ -259,7 +272,6 @@ define void @.plus.float.float(float*, float*, float*) {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
 define void @.plus.ivecn.ivecn(i32*, i32, i32*, i32, i32*) {
   %6 = alloca i32*, align 8
   %7 = alloca i32, align 4
@@ -310,7 +322,6 @@ define void @.plus.ivecn.ivecn(i32*, i32, i32*, i32, i32*) {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
 define void @.plus.int.ivecn(i32*, i32*, i32, i32*) {
   %5 = alloca i32*, align 8
   %6 = alloca i32, align 4
@@ -356,7 +367,6 @@ define void @.plus.int.ivecn(i32*, i32*, i32, i32*) {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
 define void @.plus.ivecn.int(i32*, i32, i32*, i32*) {
   %5 = alloca i32*, align 8
   %6 = alloca i32*, align 8
@@ -402,7 +412,6 @@ define void @.plus.ivecn.int(i32*, i32, i32*, i32*) {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
 define void @.plus.uvecn.uvecn(i32*, i32, i32*, i32, i32*) {
   %6 = alloca i32*, align 8
   %7 = alloca i32, align 4
@@ -453,7 +462,6 @@ define void @.plus.uvecn.uvecn(i32*, i32, i32*, i32, i32*) {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
 define void @.plus.uint.uvecn(i32*, i32*, i32, i32*) {
   %5 = alloca i32*, align 8
   %6 = alloca i32, align 4
@@ -499,7 +507,6 @@ define void @.plus.uint.uvecn(i32*, i32*, i32, i32*) {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
 define void @.plus.uvecn.uint(i32*, i32, i32*, i32*) {
   %5 = alloca i32*, align 8
   %6 = alloca i32*, align 8
@@ -545,7 +552,6 @@ define void @.plus.uvecn.uint(i32*, i32, i32*, i32*) {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
 define void @.plus.vecn.vecn(float*, i32, float*, i32, float*) {
   %6 = alloca float*, align 8
   %7 = alloca i32, align 4
@@ -596,7 +602,6 @@ define void @.plus.vecn.vecn(float*, i32, float*, i32, float*) {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
 define void @.plus.float.vecn(float*, float*, i32, float*) {
   %5 = alloca float*, align 8
   %6 = alloca i32, align 4
@@ -642,7 +647,6 @@ define void @.plus.float.vecn(float*, float*, i32, float*) {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
 define void @.plus.vecn.float(float*, i32, float*, float*) {
   %5 = alloca float*, align 8
   %6 = alloca float*, align 8
@@ -688,7 +692,6 @@ define void @.plus.vecn.float(float*, i32, float*, float*) {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
 define void @.plus.matnxm.matnxm(float*, i32, i32, float*, i32, i32, float*) {
   %8 = alloca float*, align 8
   %9 = alloca i32, align 4
@@ -745,7 +748,6 @@ define void @.plus.matnxm.matnxm(float*, i32, i32, float*, i32, i32, float*) {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
 define void @.plus.matnxm.float(float*, i32, i32, float*, float*) {
   %6 = alloca float*, align 8
   %7 = alloca float*, align 8
@@ -795,7 +797,6 @@ define void @.plus.matnxm.float(float*, i32, i32, float*, float*) {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
 define void @.plus.float.matnxm(float*, float*, i32, i32, float*) {
   %6 = alloca float*, align 8
   %7 = alloca i32, align 4

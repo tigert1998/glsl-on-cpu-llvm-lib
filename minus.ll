@@ -1,5 +1,27 @@
-; Function Attrs: noinline nounwind optnone uwtable
-define  void @.minus.int(i32*, i32*)  {
+; declare void @.minus.int(i32*, i32*)
+; declare void @.minus.uint(i32*, i32*)
+; declare void @.minus.float(float*, float*)
+; declare void @.minus.vecn(float*, i32, float*)
+; declare void @.minus.ivecn(i32*, i32, i32*)
+; declare void @.minus.uvecn(i32*, i32, i32*)
+; declare void @.minus.matnxm(float*, i32, i32, float*)
+; declare void @.minus.int.int(i32*, i32*, i32*)
+; declare void @.minus.uint.uint(i32*, i32*, i32*)
+; declare void @.minus.float.float(float*, float*, float*)
+; declare void @.minus.ivecn.ivecn(i32*, i32, i32*, i32, i32*)
+; declare void @.minus.int.ivecn(i32*, i32*, i32, i32*)
+; declare void @.minus.ivecn.int(i32*, i32, i32*, i32*)
+; declare void @.minus.uvecn.uvecn(i32*, i32, i32*, i32, i32*)
+; declare void @.minus.uint.uvecn(i32*, i32*, i32, i32*)
+; declare void @.minus.uvecn.uint(i32*, i32, i32*, i32*)
+; declare void @.minus.vecn.vecn(float*, i32, float*, i32, float*)
+; declare void @.minus.float.vecn(float*, float*, i32, float*)
+; declare void @.minus.vecn.float(float*, i32, float*, float*)
+; declare void @.minus.matnxm.matnxm(float*, i32, i32, float*, i32, i32, float*)
+; declare void @.minus.matnxm.float(float*, i32, i32, float*, float*)
+; declare void @.minus.float.matnxm(float*, float*, i32, i32, float*)
+
+define void @.minus.int(i32*, i32*) {
   %3 = alloca i32*, align 8
   %4 = alloca i32*, align 8
   store i32* %1, i32** %3, align 8
@@ -12,8 +34,7 @@ define  void @.minus.int(i32*, i32*)  {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
-define  void @.minus.uint(i32*, i32*)  {
+define void @.minus.uint(i32*, i32*) {
   %3 = alloca i32*, align 8
   %4 = alloca i32*, align 8
   store i32* %1, i32** %3, align 8
@@ -26,8 +47,7 @@ define  void @.minus.uint(i32*, i32*)  {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
-define  void @.minus.float(float*, float*)  {
+define void @.minus.float(float*, float*) {
   %3 = alloca float*, align 8
   %4 = alloca float*, align 8
   store float* %1, float** %3, align 8
@@ -40,8 +60,7 @@ define  void @.minus.float(float*, float*)  {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
-define  void @.minus.vecn(float*, i32, float*)  {
+define void @.minus.vecn(float*, i32, float*) {
   %4 = alloca float*, align 8
   %5 = alloca i32, align 4
   %6 = alloca float*, align 8
@@ -82,8 +101,7 @@ define  void @.minus.vecn(float*, i32, float*)  {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
-define  void @.minus.ivecn(i32*, i32, i32*)  {
+define void @.minus.ivecn(i32*, i32, i32*) {
   %4 = alloca i32*, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32*, align 8
@@ -124,8 +142,7 @@ define  void @.minus.ivecn(i32*, i32, i32*)  {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
-define  void @.minus.uvecn(i32*, i32, i32*)  {
+define void @.minus.uvecn(i32*, i32, i32*) {
   %4 = alloca i32*, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32*, align 8
@@ -166,8 +183,7 @@ define  void @.minus.uvecn(i32*, i32, i32*)  {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
-define  void @.minus.matnxm(float*, i32, i32, float*)  {
+define void @.minus.matnxm(float*, i32, i32, float*) {
   %5 = alloca float*, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -212,8 +228,7 @@ define  void @.minus.matnxm(float*, i32, i32, float*)  {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
-define  void @.minus.int.int(i32*, i32*, i32*)  {
+define void @.minus.int.int(i32*, i32*, i32*) {
   %4 = alloca i32*, align 8
   %5 = alloca i32*, align 8
   %6 = alloca i32*, align 8
@@ -230,8 +245,7 @@ define  void @.minus.int.int(i32*, i32*, i32*)  {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
-define  void @.minus.uint.uint(i32*, i32*, i32*)  {
+define void @.minus.uint.uint(i32*, i32*, i32*) {
   %4 = alloca i32*, align 8
   %5 = alloca i32*, align 8
   %6 = alloca i32*, align 8
@@ -248,8 +262,7 @@ define  void @.minus.uint.uint(i32*, i32*, i32*)  {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
-define  void @.minus.float.float(float*, float*, float*)  {
+define void @.minus.float.float(float*, float*, float*) {
   %4 = alloca float*, align 8
   %5 = alloca float*, align 8
   %6 = alloca float*, align 8
@@ -266,8 +279,7 @@ define  void @.minus.float.float(float*, float*, float*)  {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
-define  void @.minus.ivecn.ivecn(i32*, i32, i32*, i32, i32*)  {
+define void @.minus.ivecn.ivecn(i32*, i32, i32*, i32, i32*) {
   %6 = alloca i32*, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32*, align 8
@@ -317,8 +329,7 @@ define  void @.minus.ivecn.ivecn(i32*, i32, i32*, i32, i32*)  {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
-define  void @.minus.int.ivecn(i32*, i32*, i32, i32*)  {
+define void @.minus.int.ivecn(i32*, i32*, i32, i32*) {
   %5 = alloca i32*, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32*, align 8
@@ -363,8 +374,7 @@ define  void @.minus.int.ivecn(i32*, i32*, i32, i32*)  {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
-define  void @.minus.ivecn.int(i32*, i32, i32*, i32*)  {
+define void @.minus.ivecn.int(i32*, i32, i32*, i32*) {
   %5 = alloca i32*, align 8
   %6 = alloca i32*, align 8
   %7 = alloca i32, align 4
@@ -409,8 +419,7 @@ define  void @.minus.ivecn.int(i32*, i32, i32*, i32*)  {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
-define  void @.minus.uvecn.uvecn(i32*, i32, i32*, i32, i32*)  {
+define void @.minus.uvecn.uvecn(i32*, i32, i32*, i32, i32*) {
   %6 = alloca i32*, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32*, align 8
@@ -460,8 +469,7 @@ define  void @.minus.uvecn.uvecn(i32*, i32, i32*, i32, i32*)  {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
-define  void @.minus.uint.uvecn(i32*, i32*, i32, i32*)  {
+define void @.minus.uint.uvecn(i32*, i32*, i32, i32*) {
   %5 = alloca i32*, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32*, align 8
@@ -506,8 +514,7 @@ define  void @.minus.uint.uvecn(i32*, i32*, i32, i32*)  {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
-define  void @.minus.uvecn.uint(i32*, i32, i32*, i32*)  {
+define void @.minus.uvecn.uint(i32*, i32, i32*, i32*) {
   %5 = alloca i32*, align 8
   %6 = alloca i32*, align 8
   %7 = alloca i32, align 4
@@ -552,8 +559,7 @@ define  void @.minus.uvecn.uint(i32*, i32, i32*, i32*)  {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
-define  void @.minus.vecn.vecn(float*, i32, float*, i32, float*)  {
+define void @.minus.vecn.vecn(float*, i32, float*, i32, float*) {
   %6 = alloca float*, align 8
   %7 = alloca i32, align 4
   %8 = alloca float*, align 8
@@ -603,8 +609,7 @@ define  void @.minus.vecn.vecn(float*, i32, float*, i32, float*)  {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
-define  void @.minus.float.vecn(float*, float*, i32, float*)  {
+define void @.minus.float.vecn(float*, float*, i32, float*) {
   %5 = alloca float*, align 8
   %6 = alloca i32, align 4
   %7 = alloca float*, align 8
@@ -649,8 +654,7 @@ define  void @.minus.float.vecn(float*, float*, i32, float*)  {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
-define  void @.minus.vecn.float(float*, i32, float*, float*)  {
+define void @.minus.vecn.float(float*, i32, float*, float*) {
   %5 = alloca float*, align 8
   %6 = alloca float*, align 8
   %7 = alloca i32, align 4
@@ -695,8 +699,7 @@ define  void @.minus.vecn.float(float*, i32, float*, float*)  {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
-define  void @.minus.matnxm.matnxm(float*, i32, i32, float*, i32, i32, float*)  {
+define void @.minus.matnxm.matnxm(float*, i32, i32, float*, i32, i32, float*) {
   %8 = alloca float*, align 8
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -752,8 +755,7 @@ define  void @.minus.matnxm.matnxm(float*, i32, i32, float*, i32, i32, float*)  
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
-define  void @.minus.matnxm.float(float*, i32, i32, float*, float*)  {
+define void @.minus.matnxm.float(float*, i32, i32, float*, float*) {
   %6 = alloca float*, align 8
   %7 = alloca float*, align 8
   %8 = alloca i32, align 4
@@ -802,8 +804,7 @@ define  void @.minus.matnxm.float(float*, i32, i32, float*, float*)  {
   ret void
 }
 
-; Function Attrs: noinline nounwind optnone uwtable
-define  void @.minus.float.matnxm(float*, float*, i32, i32, float*)  {
+define void @.minus.float.matnxm(float*, float*, i32, i32, float*) {
   %6 = alloca float*, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
