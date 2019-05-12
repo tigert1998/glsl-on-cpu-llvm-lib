@@ -31,11 +31,11 @@
 | int    | `i32*`              | `i32`             |
 | uint   | `i32*`              | `i32`             |
 | float  | `float*`            | `float`           |
-| bool   | `char*`             | `char`            |
+| bool   | `i8*`               | `i8`              |
 | ivecn  | `[n x i32*]*`       | `[n x i32]`       |
 | uvecn  | `[n x i32*]*`       | `[n x i32]`       |
 | vecn   | `[n x float*]*`     | `[n x float]`     |
-| bvecn  | `[n x char*]*`      | `[n x char]`      |
+| bvecn  | `[n x i8*]*`        | `[n x i8]`        |
 | matnxm | `[(n*m) x float*]*` | `[(n*m) x float]` |
 | struct |                     |                   |
 | array  |                     |                   |

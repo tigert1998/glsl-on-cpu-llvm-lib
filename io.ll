@@ -1,25 +1,25 @@
-; declare void @print.int(i32*)
-; declare void @print.uint(i32*)
-; declare void @print.float(float*)
-; declare void @print.bool(i8*)
-; declare void @print.ivecn(i32*, i32)
-; declare void @print.uvecn(i32*, i32)
-; declare void @print.vecn(float*, i32)
-; declare void @print.bvecn(i8*, i32)
-; declare void @print.matnxm(float*, i32, i32)
-; declare void @read.int(i32*)
-; declare void @read.uint(i32*)
-; declare void @read.float(float*)
-; declare void @read.bool(i8*)
-; declare void @read.ivecn(i32*, i32)
-; declare void @read.uvecn(i32*, i32)
-; declare void @read.vecn(float*, i32)
-; declare void @read.bvecn(i8*, i32)
-; declare void @read.matnxm(float*, i32, i32)
+; declare void @.print.int(i32*)
+; declare void @.print.uint(i32*)
+; declare void @.print.float(float*)
+; declare void @.print.bool(i8*)
+; declare void @.print.ivecn(i32*, i32)
+; declare void @.print.uvecn(i32*, i32)
+; declare void @.print.vecn(float*, i32)
+; declare void @.print.bvecn(i8*, i32)
+; declare void @.print.matnxm(float*, i32, i32)
+; declare void @.read.int(i32*)
+; declare void @.read.uint(i32*)
+; declare void @.read.float(float*)
+; declare void @.read.bool(i8*)
+; declare void @.read.ivecn(i32*, i32)
+; declare void @.read.uvecn(i32*, i32)
+; declare void @.read.vecn(float*, i32)
+; declare void @.read.bvecn(i8*, i32)
+; declare void @.read.matnxm(float*, i32, i32)
 
 @print.int.str = private unnamed_addr constant [4 x i8] c"%d\0A\00", align 1
 
-define void @print.int(i32*) {
+define void @.print.int(i32*) {
   %2 = alloca i32*, align 8
   store i32* %0, i32** %2, align 8
   %3 = load i32*, i32** %2, align 8
@@ -30,7 +30,7 @@ define void @print.int(i32*) {
 
 @print.uint.str = private unnamed_addr constant [5 x i8] c"%uu\0A\00", align 1
 
-define void @print.uint(i32*) {
+define void @.print.uint(i32*) {
   %2 = alloca i32*, align 8
   store i32* %0, i32** %2, align 8
   %3 = load i32*, i32** %2, align 8
@@ -41,7 +41,7 @@ define void @print.uint(i32*) {
 
 @print.float.str = private unnamed_addr constant [6 x i8] c"%.6f\0A\00", align 1
 
-define void @print.float(float*) {
+define void @.print.float(float*) {
   %2 = alloca float*, align 8
   store float* %0, float** %2, align 8
   %3 = load float*, float** %2, align 8
@@ -54,7 +54,7 @@ define void @print.float(float*) {
 @print.bool.str = private unnamed_addr constant [6 x i8] c"true\0A\00", align 1
 @print.bool.str.1 = private unnamed_addr constant [7 x i8] c"false\0A\00", align 1
 
-define void @print.bool(i8*) {
+define void @.print.bool(i8*) {
   %2 = alloca i8*, align 8
   store i8* %0, i8** %2, align 8
   %3 = load i8*, i8** %2, align 8
@@ -79,7 +79,7 @@ define void @print.bool(i8*) {
 @print.bvecn.str.2 = private unnamed_addr constant [6 x i8] c"false\00", align 1
 @print.bvecn.str.3 = private unnamed_addr constant [5 x i8] c", %s\00", align 1
 
-define void @print.ivecn(i32*, i32) {
+define void @.print.ivecn(i32*, i32) {
   %3 = alloca i32*, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -118,7 +118,7 @@ define void @print.ivecn(i32*, i32) {
   ret void
 }
 
-define void @print.uvecn(i32*, i32) {
+define void @.print.uvecn(i32*, i32) {
   %3 = alloca i32*, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -157,7 +157,7 @@ define void @print.uvecn(i32*, i32) {
   ret void
 }
 
-define void @print.vecn(float*, i32) {
+define void @.print.vecn(float*, i32) {
   %3 = alloca float*, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -198,7 +198,7 @@ define void @print.vecn(float*, i32) {
   ret void
 }
 
-define void @print.bvecn(i8*, i32) {
+define void @.print.bvecn(i8*, i32) {
   %3 = alloca i8*, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -251,7 +251,7 @@ define void @print.bvecn(i8*, i32) {
 @print.matnxm.str.3 = private unnamed_addr constant [3 x i8] c"]\0A\00", align 1
 @print.matnxm.str.4 = private unnamed_addr constant [3 x i8] c"; \00", align 1
 
-define void @print.matnxm(float*, i32, i32) {
+define void @.print.matnxm(float*, i32, i32) {
   %4 = alloca float*, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -329,7 +329,7 @@ define void @print.matnxm(float*, i32, i32) {
 
 @read.int.str = private unnamed_addr constant [3 x i8] c"%d\00", align 1
 
-define void @read.int(i32*) {
+define void @.read.int(i32*) {
   %2 = alloca i32*, align 8
   store i32* %0, i32** %2, align 8
   %3 = load i32*, i32** %2, align 8
@@ -339,7 +339,7 @@ define void @read.int(i32*) {
 
 @read.uint.str = private unnamed_addr constant [4 x i8] c"%ud\00", align 1
 
-define void @read.uint(i32*) {
+define void @.read.uint(i32*) {
   %2 = alloca i32*, align 8
   store i32* %0, i32** %2, align 8
   %3 = load i32*, i32** %2, align 8
@@ -349,7 +349,7 @@ define void @read.uint(i32*) {
 
 @read.float.str = private unnamed_addr constant [3 x i8] c"%f\00", align 1
 
-define void @read.float(float*) {
+define void @.read.float(float*) {
   %2 = alloca float*, align 8
   store float* %0, float** %2, align 8
   %3 = load float*, float** %2, align 8
@@ -359,7 +359,7 @@ define void @read.float(float*) {
 
 @read.bool.str = private unnamed_addr constant [3 x i8] c"%d\00", align 1
 
-define void @read.bool(i8*) {
+define void @.read.bool(i8*) {
   %2 = alloca i8*, align 8
   %3 = alloca i32, align 4
   store i8* %0, i8** %2, align 8
@@ -373,7 +373,7 @@ define void @read.bool(i8*) {
   ret void
 }
 
-define void @read.ivecn(i32*, i32) {
+define void @.read.ivecn(i32*, i32) {
   %3 = alloca i32*, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -393,7 +393,7 @@ define void @read.ivecn(i32*, i32) {
   %12 = load i32, i32* %5, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i32, i32* %11, i64 %13
-  call void @read.int(i32* %14)
+  call void @.read.int(i32* %14)
   br label %15
 
 ; <label>:15:                                     ; preds = %10
@@ -406,7 +406,7 @@ define void @read.ivecn(i32*, i32) {
   ret void
 }
 
-define void @read.uvecn(i32*, i32) {
+define void @.read.uvecn(i32*, i32) {
   %3 = alloca i32*, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -426,7 +426,7 @@ define void @read.uvecn(i32*, i32) {
   %12 = load i32, i32* %5, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i32, i32* %11, i64 %13
-  call void @read.uint(i32* %14)
+  call void @.read.uint(i32* %14)
   br label %15
 
 ; <label>:15:                                     ; preds = %10
@@ -439,7 +439,7 @@ define void @read.uvecn(i32*, i32) {
   ret void
 }
 
-define void @read.vecn(float*, i32) {
+define void @.read.vecn(float*, i32) {
   %3 = alloca float*, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -459,7 +459,7 @@ define void @read.vecn(float*, i32) {
   %12 = load i32, i32* %5, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds float, float* %11, i64 %13
-  call void @read.float(float* %14)
+  call void @.read.float(float* %14)
   br label %15
 
 ; <label>:15:                                     ; preds = %10
@@ -472,7 +472,7 @@ define void @read.vecn(float*, i32) {
   ret void
 }
 
-define void @read.bvecn(i8*, i32) {
+define void @.read.bvecn(i8*, i32) {
   %3 = alloca i8*, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -492,7 +492,7 @@ define void @read.bvecn(i8*, i32) {
   %12 = load i32, i32* %5, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, i8* %11, i64 %13
-  call void @read.bool(i8* %14)
+  call void @.read.bool(i8* %14)
   br label %15
 
 ; <label>:15:                                     ; preds = %10
@@ -505,7 +505,7 @@ define void @read.bvecn(i8*, i32) {
   ret void
 }
 
-define void @read.matnxm(float*, i32, i32) {
+define void @.read.matnxm(float*, i32, i32) {
   %4 = alloca float*, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -529,7 +529,7 @@ define void @read.matnxm(float*, i32, i32) {
   %16 = load i32, i32* %7, align 4
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds float, float* %15, i64 %17
-  call void @read.float(float* %18)
+  call void @.read.float(float* %18)
   br label %19
 
 ; <label>:19:                                     ; preds = %14
